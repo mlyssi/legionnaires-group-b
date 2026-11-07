@@ -139,14 +139,15 @@ tbody tr:hover { background: var(--accent-tint); }
 body { min-height: 100vh; display: flex; flex-direction: column; }
 body > main { flex: 1 0 auto; min-width: 0; width: 100%; }
 .home { background: var(--blue); }
-/* Home video */
-.video .wrap { padding-top: 8px; padding-bottom: 64px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.video .label { color: #FFFFFF; background: var(--accent); padding: 5px 12px; border-radius: 999px; }
-.video-frame { width: 100%; max-width: 860px; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 14px 32px rgba(0, 0, 0, .28); background: #001E4D; }
+/* Home video: centred below the text and image */
+.home .band .wrap { align-items: center; padding-bottom: 40px; }
+.home .lead { max-width: 600px; }
+.video .wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 0; padding-bottom: 64px; }
+.video-frame { width: 100%; max-width: 760px; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 14px 32px rgba(0, 0, 0, .28); background: #001E4D; }
 .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
 .video-link { margin: 0; font-size: 14px; }
 .video-link a { color: var(--on-blue-muted); }
 .video-link a:hover { color: var(--on-blue); }
 
 /* Home: longer introduction text */
-.home .lead { max-width: 560px; text-align: justify; }
+.home .lead { text-align: justify; }
