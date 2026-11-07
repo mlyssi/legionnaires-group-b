@@ -1,0 +1,146 @@
+/* =========================================================
+   Legionnaires' Disease – Group B
+   One stylesheet for the whole site.
+   To change a colour everywhere, change it here once.
+   ========================================================= */
+:root {
+  /* Blue (header, title areas, footer) */
+  --blue: #0047AB;            /* cobalt blue: header, title areas, footer, home */
+  --blue-line: #2A63C2;
+  --on-blue: #FFFFFF;
+  --on-blue-soft: #D9E3F5;    /* intro text on blue */
+  --on-blue-muted: #C9D8F2;   /* small text on blue */
+
+  /* Light content area */
+  --light: #F4F6FB;
+  --ink: #16213A;
+  --ink-2: #4A5672;
+  --rule: #D5DCEA;
+
+  /* Soft magenta accent */
+  --accent: #D63384;          /* soft magenta: lines, underlines, badges, numbers */
+  --accent-on-blue: #D63384;  /* on blue the pink is used as a filled badge with white text */
+  --accent-text: #C2286F;     /* slightly darker soft magenta for small text and links on light background */
+  --accent-vivid: #D63384;    /* section numbers and lines on light background */
+  --accent-tint: #FBE9F2;
+
+  --radius: 14px;
+  --img: 340px;               /* square image on every section page */
+  --serif: 'Merriweather', Georgia, 'Times New Roman', serif;     /* academic: titles and reading text */
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;                 /* menu, captions, tables */
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--light); }
+img { max-width: 100%; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+.label { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; margin: 0; }
+
+/* ---------- Header ---------- */
+.site-header { background: var(--blue); border-bottom: 1px solid var(--blue-line); }
+.site-header .wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 20px; padding-bottom: 14px; }
+.brand { display: flex; align-items: baseline; gap: 10px; color: var(--on-blue); text-decoration: none; }
+.brand b { font-size: 23px; font-weight: 600; }
+.brand span { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .08em; color: #FFFFFF; background: var(--accent); padding: 3px 9px; border-radius: 999px; align-self: center; }
+.brand { align-items: center; }
+.nav { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 17px; }
+.nav a { color: var(--on-blue-muted); text-decoration: none; padding: 5px 0; border-bottom: 4px solid transparent; }
+.nav a:hover { color: var(--on-blue); }
+.nav a.current { color: var(--on-blue); font-weight: 600; border-bottom-color: var(--accent); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--blue); color: var(--on-blue-muted); font-size: 13px; }
+.site-footer .wrap { padding-top: 22px; padding-bottom: 26px; }
+
+/* ---------- Title area with image (every page) ---------- */
+.band { background: var(--blue); color: var(--on-blue); }
+.band .wrap { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: space-between; padding-top: 48px; padding-bottom: 52px; }
+.band-text { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.band-text .label { color: #FFFFFF; background: var(--accent); align-self: flex-start; padding: 5px 12px; border-radius: 999px; }
+.band h1 { font-family: var(--serif); margin: 0; font-size: clamp(32px, 4vw, 46px); line-height: 1.15; font-weight: 700; letter-spacing: -.015em; }
+.lead { font-family: var(--serif); margin: 0; font-size: 16.5px; line-height: 1.65; color: var(--on-blue-soft); max-width: 580px; }
+.band figure { margin: 0; flex: 0 0 var(--img); width: var(--img); }
+.band figure img { display: block; width: 100%; aspect-ratio: 1 / 1; height: auto; border-radius: var(--radius); box-shadow: 0 14px 32px rgba(0, 0, 0, .28); }
+
+/* Home: wide image shown whole */
+.home .band .wrap { padding-top: 56px; padding-bottom: 60px; }
+.home .band h1 { font-size: clamp(36px, 4.6vw, 54px); line-height: 1.1; }
+.home .band figure { flex: 0 1 480px; width: auto; }
+.home .band figure img { aspect-ratio: auto; }
+
+/* ---------- Content area (light) ---------- */
+.layout { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; padding-top: 48px; padding-bottom: 32px; }
+.toc { flex: 0 1 220px; display: flex; flex-direction: column; gap: 2px; font-size: 14px; position: sticky; top: 16px; }
+.toc .label { font-size: 11px; color: var(--ink-2); margin-bottom: 8px; }
+.toc a { color: var(--ink-2); text-decoration: none; padding: 6px 0 6px 12px; border-left: 3px solid var(--rule); }
+.toc a:hover, .toc a.on { color: var(--ink); border-left-color: var(--accent-vivid); }
+.toc a.on { font-weight: 600; }
+.keyfacts { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.keyfacts .label { font-size: 12px; color: var(--accent-text); border-top: 3px solid var(--accent-vivid); padding-top: 9px; }
+.keyfacts p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-bottom: 9px; }
+
+article { flex: 1 1 560px; min-width: 0; max-width: 740px; font-family: var(--serif); font-size: 16px; line-height: 1.8; }
+article h2 { font-family: var(--serif); margin: 40px 0 12px; font-size: 21px; font-weight: 700; line-height: 1.3; display: flex; gap: 14px; scroll-margin-top: 16px; }
+article h2:first-child { margin-top: 0; }
+article h2 .num { font-family: var(--mono); font-weight: 500; color: var(--accent-vivid); }
+article p { margin: 0 0 16px; text-align: justify; }
+article a { color: var(--accent-text); }
+
+/* Therapies: one centred column of the group's text */
+.single { padding-top: 48px; padding-bottom: 32px; }
+.single article { max-width: 780px; margin: 0 auto; }
+
+figure.fig { margin: 24px 0; }
+.fig img { display: block; width: 100%; height: auto; border-radius: var(--radius); background: #fff; border: 1px solid var(--rule); }
+.fig-credit { font-size: 13px; color: var(--ink-2); margin: 8px 0 2px; }
+figcaption, .tcap { font-size: 14px; color: var(--ink-2); }
+figcaption b, .tcap b { color: var(--ink); }
+.tcap { margin: 28px 0 8px; text-align: left; }
+figcaption, .tcap, .fig-credit, .table-src, table, .refs .label { font-family: var(--sans); }
+article .table-src { text-align: left; }
+.table-wrap { overflow-x: auto; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+table { width: 100%; min-width: 460px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td:first-child { font-weight: 600; width: 34%; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-tint); }
+.table-src { font-size: 13px; color: var(--ink-2); margin: 6px 0 24px; }
+
+.refs { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--ink); }
+.refs h2, .refs .label { margin: 0 0 12px; }
+.refs .label { font-size: 11px; color: var(--ink-2); }
+.refs h2 { font-size: 20px; }
+.refs ul { list-style: none; margin: 0; padding: 0; font-size: 14px; line-height: 1.65; color: #2E3651; }
+.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 8px; overflow-wrap: anywhere; }
+
+/* ---------- Previous / next ---------- */
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; border-top: 1px solid var(--rule); padding-top: 22px; padding-bottom: 44px; }
+.pager a { color: var(--ink); text-decoration: none; display: flex; flex-direction: column; gap: 3px; }
+.pager a:last-child { text-align: right; margin-left: auto; }
+.pager small { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--ink-2); }
+.pager span { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.pager a:hover span { color: var(--accent-vivid); }
+
+/* ---------- Phones ---------- */
+@media (max-width: 760px) {
+  .wrap { padding: 0 20px; }
+  .nav { flex-wrap: nowrap; overflow-x: auto; width: 100%; padding-bottom: 4px; }
+  .nav a { white-space: nowrap; }
+  .band .wrap, .home .band .wrap { padding-top: 32px; padding-bottom: 36px; gap: 26px; }
+  .band figure { flex: 0 0 100%; width: 100%; max-width: var(--img); }
+  .home .band figure { flex: 1 1 100%; max-width: none; }
+  .toc { position: static; flex-basis: 100%; }
+  .layout { gap: 28px; }
+}
+
+/* Page fills the screen; Home stays blue all the way down */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; min-width: 0; width: 100%; }
+.home { background: var(--blue); }
+.home > main { display: flex; align-items: center; }
+.home > main > .band { width: 100%; }
+
+/* Home: longer introduction text */
+.home .lead { max-width: 560px; text-align: justify; }
