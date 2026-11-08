@@ -151,3 +151,11 @@ body > main { flex: 1 0 auto; min-width: 0; width: 100%; }
 
 /* Home: longer introduction text */
 .home .lead { text-align: justify; }
+
+/* Epidemiology: Table 1 with a header row */
+th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--ink); font-family: var(--sans); font-weight: 600; }
+.epi-table td:first-child { width: 40%; }
+.epi-table td:last-child, .epi-table th:last-child { font-family: var(--sans); }
+.epi-table { margin: 0; }
+article .table-wrap + p { margin-top: 24px; }
+body > nav.wrap { width: 100%; box-sizing: border-box; }
