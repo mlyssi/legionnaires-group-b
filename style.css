@@ -271,3 +271,200 @@ body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
 @media (max-width: 680px) {
  body.epidemiology .band figure { width: 100%; flex: 0 1 425px; height: auto; min-height: 260px; }
 }
+
+
+/* ============================================================
+   Responsive layout: desktop, laptop, tablet and mobile.
+   Desktop design, text and original figure aspect ratios retained.
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: clip; }
+.wrap { width: 100%; }
+img, iframe, video { max-width: 100%; }
+article, .band-text, .layout, .single, .refs { min-width: 0; }
+article p, .refs li, figcaption, .fig-credit { overflow-wrap: break-word; }
+.table-wrap { max-width: 100%; -webkit-overflow-scrolling: touch; }
+.video-frame { width: min(100%,760px); }
+.site-header .wrap { padding-right: 55px; }
+.site-header .header-microscope { right: 12px; bottom: 20px; }
+.nav { min-width: 0; max-width: 100%; }
+.band figure { max-width: 100%; }
+article figure.fig, article figure.fig-centered { max-width: 100%; }
+article figure.fig img, article figure.fig-centered img {
+  width: auto; height: auto; max-width: 100%; object-fit: contain;
+}
+body.epidemiology .band figure { max-width: 100%; }
+body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
+  width: 100% !important; height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 1440px) {
+  .wrap { max-width: 1280px; }
+  .band .wrap { gap: 64px; }
+  .band-text { flex-basis: 520px; }
+  .home .band figure { flex-basis: 500px; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .wrap { padding-left: 30px; padding-right: 30px; }
+  .site-header .wrap { padding-right: 70px; }
+  .nav { gap: 5px 18px; font-size: 16px; }
+  .band .wrap { gap: 30px; }
+  .band-text { flex: 1 1 350px; }
+  .band figure { flex: 0 1 310px; width: 310px; }
+  .home .band figure { flex: 0 1 420px; }
+  body.epidemiology .band figure {
+    flex: 0 1 380px; width: 380px; height: 310px;
+  }
+  .layout { gap: 30px; }
+}
+
+@media (max-width: 760px) {
+  .wrap { padding-left: 20px; padding-right: 20px; }
+  .site-header .wrap {
+    padding: 16px 20px 14px;
+    gap: 14px;
+    position: relative;
+  }
+  .brand { max-width: calc(100% - 35px); flex-wrap: wrap; gap: 6px 9px; }
+  .brand b { font-size: clamp(19px, 4.5vw, 23px); line-height: 1.25; }
+  .brand span { font-size: 11px; }
+  .site-header .nav {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    width: 100%;
+    max-width: 100%;
+    gap: 6px 14px;
+    padding: 0 30px 0 0;
+    font-size: 15px;
+  }
+  .site-header .nav a {
+    white-space: normal;
+    padding: 5px 0;
+    line-height: 1.35;
+    border-bottom-width: 3px;
+  }
+  .site-header .header-microscope {
+    top: auto; bottom: 18px; right: 20px;
+    width: 24px; height: 24px;
+  }
+  .band .wrap, .home .band .wrap {
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 24px; padding-top: 32px; padding-bottom: 38px;
+  }
+  .band-text { flex: 0 1 auto; width: 100%; gap: 13px; }
+  .band h1 { font-size: clamp(32px, 7.5vw, 43px); }
+  .home .band h1 { font-size: clamp(34px, 8vw, 48px); }
+  .lead { font-size: 16px; line-height: 1.65; max-width: 100%; }
+  .band figure, .home .band figure {
+    flex: 0 1 auto; width: min(100%,420px); max-width: 100%;
+    margin-inline: auto;
+  }
+  .band figure img { width: 100%; }
+  .home .band figure { width: min(100%,520px); }
+  body.epidemiology .band figure {
+    width: min(100%,425px); max-width: 100%;
+    flex: 0 1 auto; height: auto; min-height: 0;
+    padding: clamp(10px,3vw,20px);
+    aspect-ratio: auto;
+  }
+  body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
+    aspect-ratio: auto !important;
+  }
+  .layout { display: block; padding-top: 30px; }
+  .toc { position: static; }
+  article, main.single article { width: 100%; max-width: 100%; }
+  .single { padding-top: 30px; }
+  article { font-size: 15.5px; line-height: 1.75; }
+  article h2 { font-size: 20px; }
+  .video .wrap { padding-bottom: 40px; }
+  .pager { gap: 20px; }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .site-header .wrap { padding-left: 16px; padding-right: 16px; }
+  .site-header .nav { gap: 5px 11px; font-size: 14px; }
+  .site-header .header-microscope { right: 16px; bottom: 16px; }
+  .brand b { font-size: 19px; }
+  .lead { font-size: 15px; }
+  .band .wrap, .home .band .wrap { padding-top: 26px; }
+  article { font-size: 15px; }
+  .pager span { font-size: 16px; }
+}
+
+/* Mobile hero image sizing correction: centered, never stretched */
+@media (max-width: 760px) {
+  .band figure, .home .band figure {
+    flex: 0 0 auto !important;
+    width: min(100%, 320px) !important;
+    max-width: 320px !important;
+    margin-inline: auto !important;
+    align-self: center !important;
+  }
+  .band figure img, .home .band figure img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .home .band figure { max-width: 360px !important; width: min(100%,360px) !important; }
+  body.epidemiology .band figure {
+    width: min(100%, 340px) !important;
+    max-width: 340px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 12px !important;
+  }
+  body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+  }
+  article figure, article figure.fig, article figure.fig-centered {
+    width: fit-content;
+    max-width: min(100%, 520px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  article figure img { max-width: 100% !important; height: auto !important; object-fit: contain !important; }
+}
+@media (max-width: 420px) {
+  .band figure, .home .band figure { width: min(100%, 290px) !important; max-width: 290px !important; }
+  body.epidemiology .band figure { width: min(100%, 310px) !important; max-width: 310px !important; }
+}
+
+/* Desktop hero balance: keep the artwork next to the text, not at the far edge. */
+@media (min-width: 1101px) {
+  .band .wrap {
+    max-width: 1240px;
+    justify-content: center;
+    column-gap: clamp(40px, 4vw, 70px);
+  }
+  .band-text { flex: 0 1 650px; }
+  .band figure { flex: 0 0 var(--img); margin: 0; }
+  .home .band figure { flex: 0 1 480px; }
+  body.epidemiology .band figure { flex: 0 0 340px; }
+}
+
+/* Final desktop restoration: keep the original two-column hero and aligned header. */
+@media (min-width: 1101px) {
+  .site-header .wrap { max-width: 1140px; padding-left: 40px; padding-right: 40px; }
+  .site-header .header-microscope { right: 40px; bottom: 19px; }
+  .site-header .nav { padding-right: 40px; }
+  .band .wrap, .home .band .wrap {
+    max-width: 1140px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 36px;
+  }
+  .band-text { flex: 1 1 0; min-width: 0; }
+  .band figure { flex: 0 0 340px; width: 340px; margin: 0; }
+  .home .band figure { flex: 0 0 420px; width: 420px; margin: 0; }
+  body.epidemiology .band figure { flex: 0 0 340px; width: 340px; }
+}
