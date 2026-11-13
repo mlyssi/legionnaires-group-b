@@ -468,3 +468,82 @@ body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
   .home .band figure { flex: 0 0 420px; width: 420px; margin: 0; }
   body.epidemiology .band figure { flex: 0 0 340px; width: 340px; }
 }
+
+/* Therapies hero: restore side-by-side desktop composition without affecting
+   the article's original figures, their dimensions, or other page heroes. */
+@media (min-width: 761px) {
+  body:has(a[href="therapies.html"].current) .band > .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+    gap: clamp(24px, 3vw, 40px);
+    align-items: center;
+    justify-content: initial;
+  }
+  body:has(a[href="therapies.html"].current) .band .band-text {
+    width: 100%; min-width: 0;
+  }
+  body:has(a[href="therapies.html"].current) .band figure {
+    width: 100%; max-width: 340px; min-width: 0;
+    margin: 0; justify-self: end;
+  }
+  body:has(a[href="therapies.html"].current) .band figure img {
+    display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+@media (max-width: 760px) {
+  body:has(a[href="therapies.html"].current) .band figure {
+    width: min(100%, 320px) !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  body:has(a[href="therapies.html"].current) .band figure img {
+    width: 100%; height: auto; object-fit: contain;
+  }
+}
+
+/* Extra breathing room between the Home introduction and YouTube video. */
+.home .video { margin-top: 56px; }
+@media (max-width: 760px) { .home .video { margin-top: 36px; } }
+
+/* Mobile tables: show both columns without horizontal scrolling.
+   Desktop/tablet presentation is intentionally unchanged. */
+@media (max-width: 760px) {
+  article .table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: visible;
+  }
+  article .table-wrap table {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    table-layout: fixed;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  article .table-wrap th,
+  article .table-wrap td {
+    padding: 9px 7px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    white-space: normal;
+    text-align: left;
+  }
+  article .table-wrap td:first-child,
+  article .table-wrap th:first-child { width: 38%; }
+  article .table-wrap td:last-child,
+  article .table-wrap th:last-child { width: 62%; }
+  article .tcap {
+    text-align: left;
+    text-align-last: left;
+    word-spacing: normal;
+    letter-spacing: normal;
+    overflow-wrap: break-word;
+  }
+}
+@media (max-width: 390px) {
+  article .table-wrap table { font-size: 12.5px; }
+  article .table-wrap th,
+  article .table-wrap td { padding: 8px 5px; }
+}
