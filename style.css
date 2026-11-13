@@ -159,3 +159,98 @@ th { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--ink); 
 .epi-table { margin: 0; }
 article .table-wrap + p { margin-top: 24px; }
 body > nav.wrap { width: 100%; box-sizing: border-box; }
+
+/* Consistent full-width justified reading column; no left table of contents */
+main.single article {max-width: 900px; margin-left:auto; margin-right:auto;}
+main.single article p {text-align:justify; text-justify:inter-word;}
+main.single article .reference-entry {overflow-wrap:anywhere; text-align:left;}
+.band figure img {border-radius:22px;}
+
+/* Small microscope symbol in the right side of the existing header */
+.site-header .wrap { position: relative; }
+.header-microscope { position: absolute; right: 0; top: 18px; width: 34px; height: 34px; object-fit: contain; pointer-events: none; opacity: .9; }
+.hero-image-credit { margin-top: 7px; font-size: 11px; line-height: 1.4; color: #fff; text-align: center; }
+.hero-image-credit a { color: inherit; text-decoration: underline; }
+@media (max-width: 680px) { .header-microscope { width: 26px; height: 26px; top: 15px; } .site-header .brand { padding-right: 36px; } }
+
+/* Keep the small microscope level with the navigation links, not the brand. */
+.site-header .wrap { position: relative; }
+.site-header .header-microscope { top: auto; bottom: 17px; right: 0; width: 29px; height: 29px; }
+.site-header .nav { padding-right: 45px; box-sizing: border-box; }
+@media(max-width:680px){ .site-header .header-microscope {top:auto;bottom:18px;width:24px;height:24px;} .site-header .brand {padding-right:0;} .site-header .nav {padding-right:36px;} }
+/* Consistent rounded hero imagery. */
+.band figure img {border-radius:var(--radius);}
+/* Direct playback poster only for local file previews. */
+.video-local-link { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:18px; background:linear-gradient(125deg,#001737,#063f91);color:white;text-decoration:none;text-align:center;font-family:inherit;font-size:19px; }
+.video-local-link .play-mark {display:flex;align-items:center;justify-content:center;background:#ed1846;border-radius:16px;width:90px;height:62px;font-size:33px;}
+.video-local-link:hover {color:white;}
+html.local-file-preview .video-frame iframe {display:none;}
+html.local-file-preview .video-local-link {display:flex;}
+
+/* Final targeted corrections: preserve the existing layout and original figure dimensions. */
+.site-header .header-microscope { bottom: 23px; }
+@media(max-width:680px) { .site-header .header-microscope {bottom:24px;} }
+/* The wide epidemiology artwork fills the existing square hero slot without stretching. */
+body:not(.home) .band figure img[src="img-epidemiology.jpg"] { width:100%; height:var(--img); aspect-ratio:1 / 1; object-fit:cover; object-position:center; }
+/* Figures in article content retain their original proportions and native pixel widths. */
+article figure.fig img { width:auto; max-width:100%; height:auto; object-fit:contain; }
+
+/* Revision 16: targeted layout fixes only; retain all original content-figure dimensions. */
+.band figure img[src="img-epidemiology-square.jpg"] {aspect-ratio:1/1;object-fit:contain;}
+article figure.fig img {width:auto;max-width:100%;height:auto;object-fit:contain;}
+article figure.fig-centered {width:fit-content;max-width:100%;margin:24px auto;}
+article figure.fig-centered figcaption {max-width:750px;}
+.citation-link {color:inherit;text-decoration:underline;text-decoration-color:#8393b7;text-underline-offset:2px;}
+/* Keep the microscope vertically centered on the navigation row. */
+.site-header .wrap {position:relative;}
+.site-header .header-microscope {top:auto;bottom:20px;width:29px;height:29px;}
+@media(max-width:680px){.site-header .header-microscope{bottom:21px;width:24px;height:24px;}}
+/* Show the actual YouTube player on both local files and published site. */
+html.local-file-preview .video-frame iframe {display:block;}
+
+/* Center and moderately reduce figures without changing their aspect ratios. */
+article figure.fig,article figure.fig-centered{width:min(100%,780px);margin:28px auto;text-align:center;}
+article figure.fig img,article figure.fig-centered img{display:block;width:auto;max-width:100%;max-height:440px;height:auto;object-fit:contain;margin:0 auto;}
+article figure.fig figcaption,article figure.fig .fig-credit{text-align:center;}
+
+
+/* Epidemiology: original four-panel image ratio, no cropping or distortion */
+body.epidemiology .band figure { flex: 0 0 340px; width: 340px; }
+body.epidemiology .band figure img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 1672 / 941; object-fit: contain;
+  border-radius: 14px;
+}
+
+
+/* Epidemiology only: retain the original 1672:941 artwork in a square blue frame.
+   The artwork is scaled uniformly, not cropped or stretched. */
+body.epidemiology .band figure {
+  flex: 0 0 340px;
+  width: 340px;
+  height: 340px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg,#062b72,#09265d 55%,#061b49);
+  border: 2px solid #3479ca;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0,0,0,.20);
+  overflow: hidden;
+}
+body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: 1672 / 941 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 10px;
+  box-shadow: none;
+}
+@media(max-width:680px){
+ body.epidemiology .band figure {flex:0 1 340px;max-width:100%;height:auto;aspect-ratio:1/1;margin-inline:auto;}
+}
