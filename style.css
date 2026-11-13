@@ -254,3 +254,20 @@ body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
 @media(max-width:680px){
  body.epidemiology .band figure {flex:0 1 340px;max-width:100%;height:auto;aspect-ratio:1/1;margin-inline:auto;}
 }
+
+/* FINAL: show the original wide Epidemiology image without cropping. */
+body.epidemiology .band figure {
+  flex: 0 0 425px; width: 425px; max-width: 100%; height: 340px;
+  box-sizing: border-box; padding: 20px; display: flex;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #082d70, #0a438f);
+  border: 1px solid #3479ca; border-radius: 20px; overflow: hidden;
+}
+body.epidemiology .band figure img[src="img-epidemiology.jpg"] {
+  display: block !important; width: 100% !important; height: auto !important;
+  max-height: 100% !important; aspect-ratio: auto !important;
+  object-fit: contain !important; border-radius: 10px;
+}
+@media (max-width: 680px) {
+ body.epidemiology .band figure { width: 100%; flex: 0 1 425px; height: auto; min-height: 260px; }
+}
